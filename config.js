@@ -7,7 +7,7 @@ var GAME = {
   level : 1
 };
 
-var SPACE_SHIP = {
+var Bill = {
   initialized : false,
   bullets : [],
   latest : {

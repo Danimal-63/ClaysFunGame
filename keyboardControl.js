@@ -4,17 +4,10 @@
  */
 
 var CONTROLS = {
-  ship : {
+  bill : {
     forward : false,
     back : false,
-    rotateClockwise : false,
-    rotateCounterClockwise : false
-  },
-  fire : {
-    active : false,
-    lastFireTime : 0
   }
-
 };
 
 document.addEventListener('keydown', function(event) {
