@@ -13,44 +13,22 @@ var CONTROLS = {
 document.addEventListener('keydown', function(event) {
   switch (event.key) {
     case "ArrowUp":
-      CONTROLS.ship.forward = true;
+      CONTROLS.bill.up = true;
       break;
     case "ArrowDown":
-      CONTROLS.ship.backward = true;
-      break;
-    case "ArrowLeft":
-      CONTROLS.ship.rotateCounterClockwise = true;
-      break;
-    case "ArrowRight":
-      CONTROLS.ship.rotateClockwise = true;
-      break;
-    case " ":
-      CONTROLS.fire.active = true;
-      break;
-    default:
+      CONTROLS.bill.down = true;
       break;
   }
-});
+};
 
 
 document.addEventListener('keyup', function(event) {
   switch (event.key) {
     case "ArrowUp":
-      CONTROLS.ship.forward = false;
+      CONTROLS.bill.forward = false;
       break;
     case "ArrowDown":
-      CONTROLS.ship.backward = false;
-      break;
-    case "ArrowLeft":
-      CONTROLS.ship.rotateCounterClockwise = false;
-      break;
-    case "ArrowRight":
-      CONTROLS.ship.rotateClockwise = false;
-      break;
-    case " ":
-      CONTROLS.fire.active = false;
-      break;
-    default:
+      CONTROLS.bill.backward = false;
       break;
   }
-});
+};
