@@ -9,14 +9,24 @@ var GAME = {
 
 var Bill = {
   initialized : false,
-  bullets : [],
+  beans:0,
+  latest : {
+    x : 0,
+    y : 0
+  }
+};
+var Bob = {
+  initialized : false,
   latest : {
     x : 0,
     y : 0
   }
 };
 
-var NEW_OBJECT = {
-  x : 0,
-  y : 0
-};
+var Beans ={
+  initialized : false,
+  latest : {
+    x : 0,
+    y : 0
+  }
+}

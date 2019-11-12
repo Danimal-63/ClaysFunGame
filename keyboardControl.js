@@ -5,8 +5,8 @@
 
 var CONTROLS = {
   bill : {
-    forward : false,
-    back : false,
+    up : false,
+    down : false,
   }
 };
 
@@ -18,17 +18,19 @@ document.addEventListener('keydown', function(event) {
     case "ArrowDown":
       CONTROLS.bill.down = true;
       break;
+    default:
+      break;
   }
-};
+});
 
 
 document.addEventListener('keyup', function(event) {
   switch (event.key) {
     case "ArrowUp":
-      CONTROLS.bill.forward = false;
+      CONTROLS.bill.up = false;
       break;
     case "ArrowDown":
-      CONTROLS.bill.backward = false;
+      CONTROLS.bill.down = false;
       break;
   }
-};
+});

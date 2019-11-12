@@ -9,4 +9,6 @@ function Start() {
 
   // Initialize Spaceship
   InitializeBill();
+  InitializeBob();
+  InitializeBeans();
 }

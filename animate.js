@@ -4,15 +4,15 @@
  *
  */
 function handleBillAnimation() {
-  if (CONTROLS.bill.forward) {
-    Bill.x += Bill.speed;
+  if (CONTROLS.bill.up) {
+    Bill.y -= Bill.speed;
   }
-  if (CONTROLS.bill.backward) {
-    Bill.x -= Bill.speed * sin;
+  if (CONTROLS.bill.down) {
+    Bill.y += Bill.speed;
   }
 
-  // Check if asteroid is leaving the boundary, if so, switch sides
-  if (Bill.x > GAME.canvas.width) {
+  Bill.x+=Bill.speed  // Check if asteroid is leaving the boundary, if so, switch sides
+  else if (Bill.x > GAME.canvas.width) {
     Bill.x = 0;
   } else if (Bill.x < 0) {
     Bill.x = 600;
@@ -23,17 +23,44 @@ function handleBillAnimation() {
   }
 }
 
-function RenderNewObject(context) {
-  context.fillRect(NEW_OBJECT.x,NEW_OBJECT.y,50,50);
+function handleBobAnimation() {
+  Bob.x+=Bob.speed
+  Bob.y=Bill.y
+
+  // Check if asteroid is leaving the boundary, if so, switch sides
+
+if (Bob.x > GAME.canvas.width) {
+  Bob.x = 0;
+} else if (Bill.x < 0) {
+  Bob.x = 600;
+} else if (Bill.y > GAME.canvas.height) {
+  Bob.y = 0;
+} else if (Bill.y < 0) {
+  Bob.y = 300;
+}
+}
+function handleBeansAnimation() {
+  Beans.x-=Beans.speed
+  Beans.y=Beans.y
+  // Check if asteroid is leaving the boundary, if so, switch sides
+if (Bill.x <0) {
+  InitializeBeans();
+  RenderBeans(context);
+}
+}
+function RenderBill(context) {
+  context.fillRect(Bill.x,Bill.y,50,50);
+  // Draw a new item here using the canvas 'context' variable
+}
+function RenderBob(context) {
+  context.fillRect(Bob.x,Bob.y,50,50);
+  // Draw a new item here using the canvas 'context' variable
+}
+function RenderBeans(context) {
+  context.fillRect(Beans.x,Beans.y,50,50);
   // Draw a new item here using the canvas 'context' variable
 }
 
-function HandleNewObjectMovement() {
-
-    NEW_OBJECT.x += 3;
-    //NEW_OBJECT.y += 1;
-
-}
 
 function runGame() {
   var canvas = document.getElementById('mainCanvas');
@@ -41,15 +68,17 @@ function runGame() {
   if (GAME.started) {
 
     // 1 - Reposition the objects
+
     handleBillAnimation();
-    HandleNewObjectMovement();
+    handleBobAnimation();
+    handleBeansAnimation();
 
-    // 2 - Clear the CANVAS
-    context.clearRect(0, 0, 600, 300);
+    context.clearRect(0,0,GAME.canvas.width,GAME.canvas.height);
+    RenderBill(context);
+    RenderBob(context);
+    RenderBeans(context);
 
-    // 3 - Draw new items
-    RenderSpacebill(context);
-    RenderNewObject(context);
+
 
   } else {
     context.font = "30px Arial";

@@ -36,7 +36,7 @@ function InitializeBill() {
     scale : 5,
     speed : 3,
     initialized : true,
-    bullets : []
+    beans:0
   };
 }
 
@@ -46,7 +46,7 @@ function InitializeBob() {
   var canvas = document.getElementById('mainCanvas');
   var context = canvas.getContext('2d');
   context.scale(1,1);
-  Bill = {
+  Bob = {
     x : 0,
     y : 150,
     positions : [
@@ -72,12 +72,52 @@ function InitializeBob() {
       }
     ],
     latest : {
-        x : Bill.x,
+        x : Bob.x,
         y : Bill.y,
     },
     scale : 5,
     speed : 3,
     initialized : true,
-    bullets : []
+
+  };
+}
+
+function InitializeBeans() {
+  var canvas = document.getElementById('mainCanvas');
+  var context = canvas.getContext('2d');
+  context.scale(1,1);
+  Beans= {
+    x : 600,
+    y : Math.random()*150+1,
+    positions : [
+      {
+        x : 1,
+       	y : 2
+      },
+      {
+        x : 1,
+       	y : -1
+      },
+      {
+        x : 1,
+       	y : 1
+      },
+      {
+        x : -1,
+       	y : -2
+      },
+      {
+        x : 1,
+       	y : 2
+      }
+    ],
+    latest : {
+        x :Beans.x,
+        y : Beans.y,
+    },
+    scale : 5,
+    speed : 3,
+    initialized : true,
+    beans:0
   };
 }
