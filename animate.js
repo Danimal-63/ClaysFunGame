@@ -1,53 +1,66 @@
 /**
- *  handleShipAnimation moves the ship based on its direction and
+ *  handleBillAnimation moves the bill based on its direction and
  *    keyboard control
  *
  */
-function handleShipAnimation() {
-  if (CONTROLS.ship.forward) {
-    var radians = (Math.PI / 180) * SPACE_SHIP.rotation,
-        cos = Math.cos(radians),
-        sin = Math.sin(radians);
-    SPACE_SHIP.x += SPACE_SHIP.speed * sin;
-    SPACE_SHIP.y +=  SPACE_SHIP.speed * cos;
+function handleBillAnimation() {
+  if (CONTROLS.bill.up) {
+    Bill.y -= Bill.speed;
   }
-  if (CONTROLS.ship.backward) {
-    var radians = (Math.PI / 180) * SPACE_SHIP.rotation,
-        cos = Math.cos(radians),
-        sin = Math.sin(radians);
-    SPACE_SHIP.x -= SPACE_SHIP.speed * sin;
-    SPACE_SHIP.y -=  SPACE_SHIP.speed * cos;
-  }
-  if (CONTROLS.ship.rotateClockwise) {
-    SPACE_SHIP.rotation -= 4;
-  }
-  if (CONTROLS.ship.rotateCounterClockwise) {
-    SPACE_SHIP.rotation += 4;
+  if (CONTROLS.bill.down) {
+    Bill.y += Bill.speed;
   }
 
-  // Check if asteroid is leaving the boundary, if so, switch sides
-  if (SPACE_SHIP.x > GAME.canvas.width) {
-    SPACE_SHIP.x = 0;
-  } else if (SPACE_SHIP.x < 0) {
-    SPACE_SHIP.x = 600;
-  } else if (SPACE_SHIP.y > GAME.canvas.height) {
-    SPACE_SHIP.y = 0;
-  } else if (SPACE_SHIP.y < 0) {
-    SPACE_SHIP.y = 300;
+  Bill.x+=Bill.speed  // Check if asteroid is leaving the boundary, if so, switch sides
+  else if (Bill.x > GAME.canvas.width) {
+    Bill.x = 0;
+  } else if (Bill.x < 0) {
+    Bill.x = 600;
+  } else if (Bill.y > GAME.canvas.height) {
+    Bill.y = 0;
+  } else if (Bill.y < 0) {
+    Bill.y = 300;
   }
 }
 
-function RenderNewObject(context) {
-  context.fillRect(NEW_OBJECT.x,NEW_OBJECT.y,50,50);
+function handleBobAnimation() {
+  Bob.x+=Bob.speed
+  Bob.y=Bill.y
+
+  // Check if asteroid is leaving the boundary, if so, switch sides
+
+if (Bob.x > GAME.canvas.width) {
+  Bob.x = 0;
+} else if (Bill.x < 0) {
+  Bob.x = 600;
+} else if (Bill.y > GAME.canvas.height) {
+  Bob.y = 0;
+} else if (Bill.y < 0) {
+  Bob.y = 300;
+}
+}
+function handleBeansAnimation() {
+  Beans.x-=Beans.speed
+  Beans.y=Beans.y
+  // Check if asteroid is leaving the boundary, if so, switch sides
+if (Bill.x <0) {
+  InitializeBeans();
+  RenderBeans(context);
+}
+}
+function RenderBill(context) {
+  context.fillRect(Bill.x,Bill.y,50,50);
+  // Draw a new item here using the canvas 'context' variable
+}
+function RenderBob(context) {
+  context.fillRect(Bob.x,Bob.y,50,50);
+  // Draw a new item here using the canvas 'context' variable
+}
+function RenderBeans(context) {
+  context.fillRect(Beans.x,Beans.y,50,50);
   // Draw a new item here using the canvas 'context' variable
 }
 
-function HandleNewObjectMovement() {
-
-    NEW_OBJECT.x += 1;
-    //NEW_OBJECT.y += 1;
-
-}
 
 function runGame() {
   var canvas = document.getElementById('mainCanvas');
@@ -55,15 +68,17 @@ function runGame() {
   if (GAME.started) {
 
     // 1 - Reposition the objects
-    handleShipAnimation();
-    HandleNewObjectMovement();
 
-    // 2 - Clear the CANVAS
-    context.clearRect(0, 0, 600, 300);
+    handleBillAnimation();
+    handleBobAnimation();
+    handleBeansAnimation();
 
-    // 3 - Draw new items
-    RenderSpaceship(context);
-    RenderNewObject(context);
+    context.clearRect(0,0,GAME.canvas.width,GAME.canvas.height);
+    RenderBill(context);
+    RenderBob(context);
+    RenderBeans(context);
+
+
 
   } else {
     context.font = "30px Arial";
