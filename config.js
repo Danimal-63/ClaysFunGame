@@ -4,11 +4,22 @@ var GAME = {
     height : 300
   },
   started : true,
-  level : 1
+  level : 1,
+  bean : [],
+  baby : [],
+  road : [],
+  beanCount : 0,
+  over : false,
+  wonFirst : true,
+  lostFirst : true,
+  gameSpeed : 2,
+  paused : false,
+  bestScore : 9999999,
 };
 
 var Bill = {
   initialized : false,
+  bumParticles : [],
   beans:0,
   latest : {
     x : 0,
