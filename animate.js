@@ -147,7 +147,7 @@ function RenderBob(context) {
 
 
 function RenderWinLose(context){
-  if (Bill.x < Bob.x + 50)
+  if (Bill.x < Bob.x + 30)
   {
     GAME.over=true;
     context.fillStyle="blue";
