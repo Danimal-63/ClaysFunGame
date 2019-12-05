@@ -1,5 +1,5 @@
 var babyPic = new Image();
-babyPic.src='Sounds/Baby.png';
+babyPic.src='Images/Baby.png';
 
 
 

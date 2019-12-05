@@ -1,5 +1,5 @@
 var image = new Image();
-image.src='Sounds/poopBeans.png';
+image.src='Images/poopBeans.png';
 function addBean (x,y)
 {
   GAME.bean.push(new Bean(x,y));
