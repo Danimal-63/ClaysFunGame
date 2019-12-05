@@ -228,6 +228,7 @@ function runGame() {
   } else {
     context.font = "30px Arial";
     context.fillText("Game Over      Level " + GAME.level, 135, 200);
+    
   }
   window.requestAnimationFrame(runGame);
 }
