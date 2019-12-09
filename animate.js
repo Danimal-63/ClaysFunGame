@@ -209,6 +209,7 @@ function runGame() {
     handleBobAnimation();
     handleBeansAnimation();
     handleBabysAnimation();
+  //  handleTacosAnimation();
     animateBumParticles();
 
 
@@ -219,6 +220,7 @@ function runGame() {
     RenderBob(context);
     RenderBeans(context);
     RenderBabies(context);
+    RenderTacos(context);
     RenderWinLose(context);
     RenderBumParticles(context);
 
