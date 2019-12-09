@@ -210,7 +210,7 @@ function runGame() {
     handleBeansAnimation();
     handleBabysAnimation();
     animateBumParticles();
-
+    handleWomenAnimation();
 
     context.clearRect(0,0,GAME.canvas.width,GAME.canvas.height);
 
@@ -221,6 +221,7 @@ function runGame() {
     RenderBabies(context);
     RenderWinLose(context);
     RenderBumParticles(context);
+    RenderWomen(context);
 
 
 

@@ -8,6 +8,7 @@ var GAME = {
   bean : [],
   baby : [],
   road : [],
+  women: [],
   beanCount : 0,
   over : false,
   wonFirst : true,
