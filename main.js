@@ -1,10 +1,10 @@
 /*the game which is currently running (or was running, but is now over); this is
 null at the beginning of the program*/
 //Canvas and basic variables of canvas
-var cvs = document.getElementById("canvas");
-var ctx = canvas.getContext("2d");
-var width = canvas.getAttribute('width');
-var height = canvas.getAttribute('height');
+var cvs = document.getElementById("mainCanvas");
+var ctx = cvs.getContext("2d");
+var width = cvs.getAttribute('width');
+var height = cvs.getAttribute('height');
 
 var BUTTON1 = {
   x : 1000,
@@ -38,26 +38,27 @@ var BUTTON2 = {
  }
 
 //draws the menu screen
-function drawMenu(){
-  var bgImage = new Image(); //background
-  var titleImage = new Image(); //title
-  var singleplayerImage = new Image(); //singleplayer
-  var multiplayerImage = new Image(); //multiplayer
-
-  bgImage.src = "sprites/Background.png"; //image for background
-  titleImage.src = "sprites/Title.png"; //image for title
-  singleplayerImage.src = "sprites/singleplayerButton.png"; //image for singleplayer button
-  multiplayerImage.src = "sprites/multiplayerButton.png"; //image for multiplayer button
-
-  ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height); //clears canvas
-  ctx.drawImage(bgImage, 0, 0); //draws background
-  ctx.drawImage(titleImage, 50, -10); //draws title
-  ctx.drawImage(singleplayerImage, 1000, 1000);
-  ctx.drawImage(multiplayerImage, 1000, 1500);
-}
+// function drawMenu(){
+//   var bgImage = new Image(); //background
+//   var titleImage = new Image(); //title
+//   var singleplayerImage = new Image(); //singleplayer
+//   var multiplayerImage = new Image(); //multiplayer
+//
+//   bgImage.src = "sprites/Background.png"; //image for background
+//   titleImage.src = "sprites/Title.png"; //image for title
+//   singleplayerImage.src = "sprites/singleplayerButton.png"; //image for singleplayer button
+//   multiplayerImage.src = "sprites/multiplayerButton.png"; //image for multiplayer button
+//
+//   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height); //clears canvas
+//   ctx.drawImage(bgImage, 0, 0); //draws background
+//   ctx.drawImage(titleImage, 50, -10); //draws title
+//   ctx.drawImage(singleplayerImage, 1000, 1000);
+//   ctx.drawImage(multiplayerImage, 1000, 1500);
+// }
 
 //the main method which will loop continuously
 function main() {
+  window.requestAnimationFrame(drawMenu);
   while (GAME.active && GAME != null) {
       GAME.updateGame(); //updates the game
       GAME.wonFirst = true;
@@ -71,9 +72,9 @@ function main() {
       GAME.runGame(); //renders the game
   }
   //if no game is running
-  drawMenu(); //renders the menu screen
+   //renders the menu screen
 }
-window.requestAnimationFrame(drawMenu);
+
 
 /**
  *  This is called once after the HTML of the page loads
@@ -96,8 +97,6 @@ function Resume(){
 }
 
 function Start() {
-
-  // Initialize Spaceship
   GAME.wonFirst = true;
   GAME.lostFirst = true;
   GAME.over=false;

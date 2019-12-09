@@ -3,7 +3,7 @@ var GAME = {
     width : 600,
     height : 300
   },
-  started : true,
+  started : false,
   level : 1,
   bean : [],
   baby : [],
