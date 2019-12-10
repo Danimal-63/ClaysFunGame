@@ -30,35 +30,38 @@ var BUTTON2 = {
      if (x <= BUTTON1.x + BUTTON1.w || x >= BUTTON1.x - BUTTON1.w && y <= BUTTON1.y + BUTTON1.h || y >= BUTTON1.y - BUTTON1.h) {
        GAME.multiplayer = false;
        GAME.active = true;
+       GAME.started = true;
      }
      else if(x <= BUTTON2.x + BUTTON2.w || x >= BUTTON2.x - BUTTON2.w && y <= BUTTON2.y + BUTTON2.h || y >= BUTTON2.y - BUTTON2.h){
        GAME.multiplayer = true;
        GAME.active = true;
+       GAME.started = true;
      }
  }
 
 //draws the menu screen
-// function drawMenu(){
-//   var bgImage = new Image(); //background
-//   var titleImage = new Image(); //title
-//   var singleplayerImage = new Image(); //singleplayer
-//   var multiplayerImage = new Image(); //multiplayer
-//
-//   bgImage.src = "sprites/Background.png"; //image for background
-//   titleImage.src = "sprites/Title.png"; //image for title
-//   singleplayerImage.src = "sprites/singleplayerButton.png"; //image for singleplayer button
-//   multiplayerImage.src = "sprites/multiplayerButton.png"; //image for multiplayer button
-//
-//   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height); //clears canvas
-//   ctx.drawImage(bgImage, 0, 0); //draws background
-//   ctx.drawImage(titleImage, 50, -10); //draws title
-//   ctx.drawImage(singleplayerImage, 1000, 1000);
-//   ctx.drawImage(multiplayerImage, 1000, 1500);
-// }
+function drawMenu(){
+  var bgImage = new Image(); //background
+  var titleImage = new Image(); //title
+  var singleplayerImage = new Image(); //singleplayer
+  var multiplayerImage = new Image(); //multiplayer
+
+
+  titleImage.src = "Title.png.webloc"; //image for title
+  singleplayerImage.src = "singleplayerButton.png"; //image for singleplayer button
+  multiplayerImage.src = "multiplayerButton.png"; //image for multiplayer button
+
+  ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height); //clears canvas
+  ctx.drawImage(titleImage, 50, -10); //draws title
+  ctx.drawImage(singleplayerImage, 1000, 1000);
+  ctx.drawImage(multiplayerImage, 1000, 1500);
+}
 
 //the main method which will loop continuously
 function main() {
+  GAME.drawMenu();
   window.requestAnimationFrame(drawMenu);
+
   while (GAME.active && GAME != null) {
       GAME.updateGame(); //updates the game
       GAME.wonFirst = true;
