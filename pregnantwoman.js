@@ -13,9 +13,11 @@ function Woman (x,y){
 }
 
 function RenderWomen(context){
+  if (!GAME.over){
   for (var i=0;i<GAME.women.length;i++){
     context.drawImage(woman,GAME.women[i].x,GAME.women[i].y,75,75)
   }
+}
 }
 
 function InitializeWomen(){
@@ -34,8 +36,8 @@ function handleWomenAnimation(){
   if (GAME.women[i].y<0){
     GAME.women[i].y=0;
   }
-  if (GAME.women[i].y>250){
-    GAME.women[i].y=250;
+  if (GAME.women[i].y>225){
+    GAME.women[i].y=225;
   }
 GAME.women[i].babyTimer--;
 if (GAME.women[i].babyTimer==0){

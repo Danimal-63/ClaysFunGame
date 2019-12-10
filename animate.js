@@ -167,9 +167,10 @@ context.fillStyle="white";
       GAME.bestScore=Bill.elapsed;
     }
     // Draw a new item h
-    GAME.over=true;
-    context.fillStyle="black";
-    Bob.speed=0;
+    GAME.level+=1;
+    Bill.x=300;
+    Bob.x=0;
+    Bob.speed=0.25+(0.025*GAME.level);
     GAME.beanCount=0;
 
     context.fillRect(0,0,GAME.canvas.width,GAME.canvas.height);
