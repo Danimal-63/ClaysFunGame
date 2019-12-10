@@ -24,8 +24,8 @@ var BUTTON2 = {
  * Check to see if the user is hovering over or clicking on the button.
  */
  window.onmousedown = function(e) {
-     x = e.pageX - canvas.getBoundingClientRect().left
-     y = e.pageY - canvas.getBoundingClientRect().top
+     x = e.pageX - cvs.getBoundingClientRect().left
+     y = e.pageY - cvs.getBoundingClientRect().top
 
      if (x <= BUTTON1.x + BUTTON1.w || x >= BUTTON1.x - BUTTON1.w && y <= BUTTON1.y + BUTTON1.h || y >= BUTTON1.y - BUTTON1.h) {
        GAME.multiplayer = false;
