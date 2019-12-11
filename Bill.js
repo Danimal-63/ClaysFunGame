@@ -44,6 +44,7 @@ function InitializeBill() {
     beans:0,
     start : new Date(),
     elapsed : 0,
+    paused:0
   };
 }
 

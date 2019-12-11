@@ -62,7 +62,11 @@ if(GAME.paused==false){
 function handleBillAnimation() {
   //let playerShotImg = new Image();
   //playerShotImg.src = 'Sounds/fartBeans.png';
-  Bill.elapsed = new Date()-Bill.start;
+  if (GAME.paused){
+    Bill.paused=new Date()-Bill.elapsed-Bill.start;
+  }else{
+  Bill.elapsed = new Date()-Bill.start-Bill.paused;
+}
   if (CONTROLS.bill.up) {
     Bill.y -= Bill.verticalSpeed;
   }

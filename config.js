@@ -22,6 +22,7 @@ var Bill = {
   initialized : false,
   bumParticles : [],
   beans:0,
+  paused:0,
   latest : {
     x : 0,
     y : 0
