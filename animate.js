@@ -174,6 +174,7 @@ context.fillStyle="white";
     removeWomen();
     removeBeans();
     removeBabies();
+    removeMen();
     GAME.level+=1;
     Bill.x=300;
     Bob.x=0;
@@ -182,7 +183,7 @@ context.fillStyle="white";
     if (GAME.level==2){
       addWoman(525,100);
     }
-    
+
     context.fillRect(0,0,GAME.canvas.width,GAME.canvas.height);
     context.fillStyle="white";
   context.font = "80px Arial";
@@ -233,6 +234,7 @@ function runGame() {
     RenderWinLose(context);
     RenderBumParticles(context);
     RenderWomen(context);
+    RenderMen(context);
 
 
 
