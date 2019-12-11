@@ -42,6 +42,7 @@ function InitializeBill() {
     verticalSpeed : 10,
     initialized : true,
     beans:0,
+    jellyBeans : 0,
     start : new Date(),
     elapsed : 0,
   };

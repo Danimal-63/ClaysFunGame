@@ -8,6 +8,7 @@ var CONTROLS = {
     up : false,
     down : false,
     fart : false,
+    vomit : false,
   }
 };
 
@@ -38,6 +39,13 @@ document.addEventListener('keyup', function(event) {
       break;
     case "ArrowDown":
       CONTROLS.bill.down = false;
+      break;
+    case "f":
+     if (GAME.jellyBeanCount>=5){
+        CONTROLS.bill.vomit = true;
+        GAME.jellyBeanCount-=5;
+        setTimeout(function(){ CONTROLS.bill.vomit = false; }, 200);
+      }
       break;
     case " ":
      if (GAME.beanCount >=5){

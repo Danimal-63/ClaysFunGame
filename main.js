@@ -32,4 +32,5 @@ function Start() {
   InitializeBob();
   InitializeBeans();
   InitializeBabies();
+  InitializeJellyBeans();
 }

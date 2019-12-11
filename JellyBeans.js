@@ -1,39 +1,48 @@
-var tacoPic = new Image();
-tacoPic.src='Sounds/taco.png';
+var jellyBeanPic = new Image();
+jellyBeanPic.src='Sounds/jellyBean.png';
 
-function addTaco (x,y)
+function addJellyBean (x,y)
 {
-  GAME.taco.push(new Taco(x,y));
+  GAME.jellyBean.push(new JellyBean(x,y));
 }
 
-function Taco (x,y){
+function JellyBean (x,y){
   this.x = x;
   this.y = y;
 }
 
-tacoAddTimer = 30;
+jellyBeanAddTimer = 45;
 
-/*function handleTacosAnimation(){
 
-}*/
+function RenderJellyBeans(context){
+  if(GAME.over==true)return;
+  else{
+    context.fillStyle='purple';
+    for (var i = 0; i<GAME.jellyBean.length;i++)
+    {
+      //context.fillRect(GAME.bean[i].x,GAME.bean[i].y,20,20);
+      context.drawImage(jellyBeanPic,GAME.jellyBean[i].x,GAME.jellyBean[i].y,20,20);
+    }
 
-function RenderTacos(context){
-  context.fillStyle='yellow';
-  for (var i = 0; i<GAME.taco.length;i++)
-  {
-    context.fillStyle='yellow';
-    context.drawImage(tacoPic,GAME.taco[i].x,GAME.taco[i].y,20,20);
+     context.font = "30px Arial";
+     if (GAME.jellyBeanCount < 5) context.fillStyle='red';
+     else context.fillStyle='green';
+     if (GAME.jellyBeanCount !=10)
+     context.fillText(GAME.jellyBeanCount, GAME.canvas.width -25, GAME.canvas.height-10);
+     else
+     context.fillText(GAME.jellyBeanCount, GAME.canvas.width -39, GAME.canvas.height-10);
   }
 }
 
-function InitializeTacos(){
+function InitializeJellyBeans(){
   var canvas = document.getElementById('mainCanvas');
   var context = canvas.getContext('2d');
   context.scale(1,1);
 
-  for (var i = 0; i<GAME.taco.length; i++){
-       GAME.taco.splice(i,1);
+  for (var i = 0; i<GAME.jellyBean.length; i++){
+       GAME.jellyBean.splice(i,1);
        i--;
 
    }
+   GAME.jellyBeanCount = 0;
 }

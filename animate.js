@@ -31,7 +31,32 @@
  var fartSound10 = new Audio('Sounds/Farts/fart-wav-4.wav');
  var winFartSound = new Audio('Sounds/Farts/winFart.m4a');
 
+function handleJellyBeansAnimation(){
+  if(GAME.paused==false){
+     if(jellyBeanAddTimer==0){
+       addJellyBean(GAME.canvas.width, Math.random()*(GAME.canvas.height -20));
+       jellyBeanAddTimer=45;
+     }
+     jellyBeanAddTimer--;
 
+     for (var i = 0; i<GAME.jellyBean.length; i++){
+       GAME.jellyBean[i].x-=GAME.gameSpeed;
+       if(GAME.jellyBean[i].x< (-20)){
+         GAME.jellyBean.splice(i,1);
+         i--;
+       }
+     }
+
+    for (var i = 0; i<GAME.jellyBean.length; i++){
+       if(GAME.jellyBean[i].x < (Bill.x+51) && GAME.jellyBean[i].x > (Bill.x-20) && GAME.jellyBean[i].y > (Bill.y -20) && GAME.bean[i].y < (Bill.y +50))
+       {
+         GAME.jellyBean.splice(i,1);
+         if(GAME.jellyBeanCount < 10) GAME.jellyBeanCount++;
+         i--;
+       }
+     }
+   }
+}
 
  function handleBeansAnimation (){
 if(GAME.paused==false){
@@ -79,6 +104,9 @@ function handleBillAnimation() {
   if (CONTROLS.bill.fart) {
     Bill.x += 5;
   }
+  if (CONTROLS.bill.vomit){
+    Bill.x -= 5;
+  }
 //  Bill.x+=Bill.speed  // Check if asteroid is leaving the boundary, if so, switch sides
   /*if (Bill.x > GAME.canvas.width) {
     Bill.x = 0;
@@ -108,6 +136,10 @@ function handleBobAnimation() {
 if (CONTROLS.bill.fart) {
 
   Bob.x -= 5;
+}
+if (CONTROLS.bill.vomit)
+{
+  Bob.x -=5;
 }
 Bob.x += Bob.speed;
 if(Bob.y < Bill.y)
@@ -153,6 +185,7 @@ function RenderWinLose(context){
     context.fillStyle="blue";
     Bob.speed=0;
     GAME.beanCount=0;
+    GAME.jellyBeanCount=0;
 
   context.fillRect(0,0,GAME.canvas.width,GAME.canvas.height);
 context.fillStyle="white";
@@ -171,6 +204,7 @@ context.fillStyle="white";
     context.fillStyle="black";
     Bob.speed=0;
     GAME.beanCount=0;
+    GAME.jellyBeanCount=0;
 
     context.fillRect(0,0,GAME.canvas.width,GAME.canvas.height);
     context.fillStyle="white";
@@ -209,7 +243,7 @@ function runGame() {
     handleBobAnimation();
     handleBeansAnimation();
     handleBabysAnimation();
-  //  handleTacosAnimation();
+    handleJellyBeansAnimation();
     animateBumParticles();
 
 
@@ -220,7 +254,7 @@ function runGame() {
     RenderBob(context);
     RenderBeans(context);
     RenderBabies(context);
-    RenderTacos(context);
+    RenderJellyBeans(context);
     RenderWinLose(context);
     RenderBumParticles(context);
 
