@@ -45,3 +45,8 @@ function InitializeBeans() {
    GAME.beanCount = 0;
 
 }
+function removeBeans(){
+  for (var i = 0; i<GAME.bean.length; i++){
+       GAME.bean.splice(i,1);
+}
+}

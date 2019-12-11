@@ -171,12 +171,18 @@ context.fillStyle="white";
       GAME.bestScore=Bill.elapsed;
     }
     // Draw a new item h
+    removeWomen();
+    removeBeans();
+    removeBabies();
     GAME.level+=1;
     Bill.x=300;
     Bob.x=0;
     Bob.speed=0.25+(0.025*GAME.level);
     GAME.beanCount=0;
-
+    if (GAME.level==2){
+      addWoman(525,100);
+    }
+    
     context.fillRect(0,0,GAME.canvas.width,GAME.canvas.height);
     context.fillStyle="white";
   context.font = "80px Arial";

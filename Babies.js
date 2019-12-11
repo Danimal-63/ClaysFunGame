@@ -71,3 +71,8 @@ function InitializeBabies() {
 
    }
 }
+function removeBabies(){
+  for (var i = 0; i<GAME.baby.length; i++){
+      GAME.baby.splice(i,1);
+    }
+}

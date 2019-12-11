@@ -4,7 +4,7 @@ function addWoman(x,y){
   GAME.women.push(new Woman(x,y));
 }
 
-var babyAddTimer=45;
+var babyAddTimer=60;
 
 function Woman (x,y){
   this.x=x;
@@ -44,5 +44,11 @@ if (GAME.women[i].babyTimer==0){
   addBaby(GAME.women[i].x,GAME.women[i].y);
   GAME.women[i].babyTimer=babyAddTimer;
 }
+  }
+}
+
+function removeWomen(){
+  for (var i=0;i<GAME.women.length;i++){
+    GAME.women.splice(i,1);
   }
 }
