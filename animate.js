@@ -252,21 +252,21 @@ function runGame() {
 
   var canvas = document.getElementById('mainCanvas');
   var context = canvas.getContext('2d');
-  var bgImage = new Image(); //background
-  var titleImage = new Image(); //title
-  var singleplayerImage = new Image(); //singleplayer
-  var multiplayerImage = new Image(); //multiplayer
+  //
+  // var bgImage = new Image(); //background
+  // var titleImage = new Image(); //title
+  // var singleplayerImage = new Image(); //singleplayer
+  // var multiplayerImage = new Image(); //multiplayer
+  //
+  //
+  // titleImage.src = "Title.png.webloc"; //image for title
+  // singleplayerImage.src = "singleplayerButton.png"; //image for singleplayer button
+  // multiplayerImage.src = "multiplayerButton.png"; //image for multiplayer button
+  //
+  // ctx.drawImage(titleImage, 50, -10); //draws title
+  // ctx.drawImage(singleplayerImage, 1000, 1000);
+  // ctx.drawImage(multiplayerImage, 1000, 1500);
 
-
-  titleImage.src = "Title.png.webloc"; //image for title
-  singleplayerImage.src = "singleplayerButton.png"; //image for singleplayer button
-  multiplayerImage.src = "multiplayerButton.png"; //image for multiplayer button
-
-  ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height); //clears canvas
-  ctx.drawImage(titleImage, 50, -10); //draws title
-  ctx.drawImage(singleplayerImage, 1000, 1000);
-  ctx.drawImage(multiplayerImage, 1000, 1500);
-  
   if (GAME.started) {
     handleRoadAnimation();
     handleBillAnimation();
