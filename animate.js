@@ -35,7 +35,7 @@ function handleJellyBeansAnimation(){
   if(GAME.paused==false){
      if(jellyBeanAddTimer==0){
        addJellyBean(GAME.canvas.width, Math.random()*(GAME.canvas.height -20));
-       jellyBeanAddTimer=45;
+       jellyBeanAddTimer=30;
      }
      jellyBeanAddTimer--;
 
@@ -51,7 +51,7 @@ function handleJellyBeansAnimation(){
        if(GAME.jellyBean[i].x < (Bill.x+51) && GAME.jellyBean[i].x > (Bill.x-20) && GAME.jellyBean[i].y > (Bill.y -20) && GAME.jellyBean[i].y < (Bill.y +50))
        {
          GAME.jellyBean.splice(i,1);
-         if(GAME.jellyBeanCount < 10) GAME.jellyBeanCount++;
+         if(GAME.jellyBeanCount < 12) GAME.jellyBeanCount++;
          i--;
        }
      }

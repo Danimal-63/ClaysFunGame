@@ -11,7 +11,7 @@ function JellyBean (x,y){
   this.y = y;
 }
 
-jellyBeanAddTimer = 45;
+jellyBeanAddTimer = 30;
 
 
 function RenderJellyBeans(context){
@@ -25,9 +25,9 @@ function RenderJellyBeans(context){
     }
 
      context.font = "30px Arial";
-     if (GAME.jellyBeanCount < 5) context.fillStyle='red';
-     else context.fillStyle='green';
-     if (GAME.jellyBeanCount !=10)
+     if (GAME.jellyBeanCount < 4) context.fillStyle='red';
+     else context.fillStyle='blue';
+     if (GAME.jellyBeanCount <10)
      context.fillText(GAME.jellyBeanCount, GAME.canvas.width -50, GAME.canvas.height-10);
      else
      context.fillText(GAME.jellyBeanCount, GAME.canvas.width -64, GAME.canvas.height-10);

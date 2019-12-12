@@ -41,9 +41,9 @@ document.addEventListener('keyup', function(event) {
       CONTROLS.bill.down = false;
       break;
     case "f":
-     if (GAME.jellyBeanCount>=5){
+     if (GAME.jellyBeanCount>=4){
         CONTROLS.bill.vomit = true;
-        GAME.jellyBeanCount-=5;
+        GAME.jellyBeanCount-=4;
         setTimeout(function(){ CONTROLS.bill.vomit = false; }, 200);
       }
       break;
