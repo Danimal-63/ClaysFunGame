@@ -15,7 +15,7 @@
  - also there is another weird glitch where when you win sometimes and then you hit something the "you win" screen will go away
  */
  var billPic = new Image();
- billPic.src='Images/runningMan.png';
+ billPic.src='Images/flatulentMan/fartman_0.png';
 
  var babySound = new Audio('Sounds/Farts/untitled 5.mov');
  var lossSound = new Audio('Sounds/Farts/LoserSong.m4a');
