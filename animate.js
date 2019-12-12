@@ -48,7 +48,7 @@ function handleJellyBeansAnimation(){
      }
 
     for (var i = 0; i<GAME.jellyBean.length; i++){
-       if(GAME.jellyBean[i].x < (Bill.x+51) && GAME.jellyBean[i].x > (Bill.x-20) && GAME.jellyBean[i].y > (Bill.y -20) && GAME.bean[i].y < (Bill.y +50))
+       if(GAME.jellyBean[i].x < (Bill.x+51) && GAME.jellyBean[i].x > (Bill.x-20) && GAME.jellyBean[i].y > (Bill.y -20) && GAME.jellyBean[i].y < (Bill.y +50))
        {
          GAME.jellyBean.splice(i,1);
          if(GAME.jellyBeanCount < 10) GAME.jellyBeanCount++;
@@ -105,7 +105,7 @@ function handleBillAnimation() {
     Bill.x += 5;
   }
   if (CONTROLS.bill.vomit){
-    Bill.x -= 5;
+    Bill.x -= 2;
   }
 //  Bill.x+=Bill.speed  // Check if asteroid is leaving the boundary, if so, switch sides
   /*if (Bill.x > GAME.canvas.width) {
@@ -140,6 +140,7 @@ if (CONTROLS.bill.fart) {
 if (CONTROLS.bill.vomit)
 {
   Bob.x -=5;
+  Bob.y -=10
 }
 Bob.x += Bob.speed;
 if(Bob.y < Bill.y)
