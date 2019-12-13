@@ -165,6 +165,16 @@ context.fillStyle="white";
   if(GAME.lostFirst == true) lossSound.play();
   GAME.lostFirst = false;
   }
+  if (GAME.level==8){
+    context.font = "80px Arial";
+      GAME.wonFirst = false;
+      context.fillRect(0,0,GAME.canvas.width,GAME.canvas.height);
+      context.fillStyle="white";
+      context.fillText("YOU WIN!", 110, 180);
+    context.font = "30px Arial";
+    context.fillText("Low Score: " + GAME.bestScore/1000, 180, 280);
+    if(GAME.wonFirst == true) winFartSound.play();
+  }
   if (Bill.x > GAME.canvas.width -50)
   {
     if(Bill.elapsed<GAME.bestScore){
@@ -187,12 +197,12 @@ context.fillStyle="white";
       addMan(549,100)
     }
     if (GAME.level==4){
-      addWoman(549,100);
-      addWoman(549,0);
+      addWoman(549,50);
+      addWoman(549,250);
     }
     if (GAME.level==5){
-      addMan(549,100);
-      addMan(549,0);
+      addMan(549,50);
+      addMan(549,250);
     }
     if (GAME.level==6){
       addWoman(549,100);
@@ -201,19 +211,8 @@ context.fillStyle="white";
     if (GAME.level==7){
       addMan(549,100);
       addMan(549,0);
-      addWomen(249,200);
+      addWoman(549,200);
     }
-    if (GAME.level=8){
-      context.font = "80px Arial";
-      context.fillText("YOU WIN!", 110, 180);
-        GAME.wonFirst = false;
-    }
-
-    context.fillRect(0,0,GAME.canvas.width,GAME.canvas.height);
-    context.fillStyle="white";
-  context.font = "30px Arial";
-  context.fillText("Low Score: " + GAME.bestScore/1000, 180, 280);
-  if(GAME.wonFirst == true) winFartSound.play();
   /*setTimeout(function(){fartSound1.play()}, 2000);
   setTimeout(function(){fartSound2.play()}, 4000);
   setTimeout(function(){fartSound3.play()}, 6000);
