@@ -74,8 +74,8 @@ function drawMenu(){
     {
       if(getCursorPosition(e)[1] >= BUTTON1.y && getCursorPosition(e)[1] <= BUTTON1.y + BUTTON1.h)
       {
-        alert("singleplayer");
         GAME.active = true;
+        GAME.started = true;
         GAME.multiplayer = false;
         runGame();
       }
@@ -84,7 +84,7 @@ function drawMenu(){
     {
       if(getCursorPosition(e)[1] >= BUTTON2.y && getCursorPosition(e)[1] <= BUTTON2.y + BUTTON2.h)
       {
-        alert("multiplayer");
+        GAME.started = true;
         GAME.active = true;
         GAME.multiplayer = true;
         runGame();
