@@ -9,6 +9,7 @@ var fartTimer=60;
 function Man (x,y){
   this.x=x;
   this.y=y;
+  this.change=3;
   }
 
 function RenderMen(context){
@@ -26,16 +27,15 @@ context.scale(1,1);
 }
 
 function handleMenAnimation(){
-  var change=3;
   for (var i=0;i<GAME.men.length;i++){
-  GAME.men[i].y+=change;
+  GAME.men[i].y+=GAME.men[i].change;
   if (GAME.men[i].y<0){
     GAME.men[i].y=0;
-    change=change*-1;
+    GAME.men[i].change=GAME.men[i].change*-1;
   }
   if (GAME.men[i].y>225){
     GAME.men[i].y=225;
-    change=change*-1;
+    GAME.men[i].change=GAME.men[i].change*-1;
   }
 if ((GAME.men[i].y<=Bill.y+55 && GAME.men[i].y+55>=Bill.y)&&GAME.men[i].x-75<=Bill.x){
   for (var j =0;j < 40;j++)
