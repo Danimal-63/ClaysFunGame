@@ -9,7 +9,7 @@ var babyAddTimer=60;
 function Woman (x,y){
   this.x=x;
   this.y=y;
-  this.babyTimer=45
+  this.babyTimer=(Math.random()*45)+1;
 }
 
 function RenderWomen(context){
@@ -29,26 +29,26 @@ context.scale(1,1);
 function handleWomenAnimation(){
   var change=3;
   for (var i=0;i<GAME.women.length;i++){
-    if ((Math.random()*2)>1){
-      change=-3;
-  }
   GAME.women[i].y+=change;
   if (GAME.women[i].y<0){
     GAME.women[i].y=0;
+    change=change*-1;
   }
   if (GAME.women[i].y>225){
     GAME.women[i].y=225;
+    change=change*-1;
   }
-GAME.women[i].babyTimer--;
-if (GAME.women[i].babyTimer==0){
+if (GAME.women[i].babyTimer<=0){
   addBaby(GAME.women[i].x,GAME.women[i].y);
   GAME.women[i].babyTimer=babyAddTimer;
 }
+GAME.women[i].babyTimer--;
   }
 }
 
 function removeWomen(){
   for (var i=0;i<GAME.women.length;i++){
     GAME.women.splice(i,1);
+    i--;
   }
 }

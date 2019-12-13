@@ -181,7 +181,10 @@ context.fillStyle="white";
     Bob.speed=0.25+(0.025*GAME.level);
     GAME.beanCount=0;
     if (GAME.level==2){
-      addWoman(525,100);
+      addWoman(549,100);
+    }
+    if (GAME.level==3){
+      addMan(549,100)
     }
 
     context.fillRect(0,0,GAME.canvas.width,GAME.canvas.height);
@@ -223,6 +226,7 @@ function runGame() {
     handleBabysAnimation();
     animateBumParticles();
     handleWomenAnimation();
+    handleMenAnimation();
 
     context.clearRect(0,0,GAME.canvas.width,GAME.canvas.height);
 
