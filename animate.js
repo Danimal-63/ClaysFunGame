@@ -204,17 +204,16 @@ context.fillStyle="white";
       addWomen(249,200);
     }
     if (GAME.level=8){
-      //game win
+      context.font = "80px Arial";
+      context.fillText("YOU WIN!", 110, 180);
+        GAME.wonFirst = false;
     }
 
     context.fillRect(0,0,GAME.canvas.width,GAME.canvas.height);
     context.fillStyle="white";
-  context.font = "80px Arial";
-  context.fillText("YOU WIN!", 110, 180);
   context.font = "30px Arial";
   context.fillText("Low Score: " + GAME.bestScore/1000, 180, 280);
   if(GAME.wonFirst == true) winFartSound.play();
-  GAME.wonFirst = false;
   /*setTimeout(function(){fartSound1.play()}, 2000);
   setTimeout(function(){fartSound2.play()}, 4000);
   setTimeout(function(){fartSound3.play()}, 6000);
