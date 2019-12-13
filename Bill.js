@@ -36,7 +36,11 @@ function InitializeBill() {
     scale : 5,
     speed : 3,
     initialized : true,
-    beans:0
+    beans:0,
+    jellyBeans : 0,
+    start : new Date(),
+    elapsed : 0,
+    paused:0
   };
 }
 

@@ -140,16 +140,13 @@ function main() {
  *
  */
 function Start() {
-<<<<<<< HEAD
   GAME.wonFirst = true;
   GAME.lostFirst = true;
   GAME.over=false;
   InitializeRoad();
-=======
-
-  // Initialize Spaceship
->>>>>>> parent of 0010170... UPDATE
   InitializeBill();
   InitializeBob();
   InitializeBeans();
+  InitializeBabies();
+  InitializeJellyBeans();
 }

@@ -7,9 +7,13 @@ var GAME = {
   started : false,
   level : 1,
   bean : [],
+  jellyBean : [],
   baby : [],
   road : [],
+  women: [],
+  men:[],
   beanCount : 0,
+  jellyBeanCount : 0,
   over : false,
   wonFirst : true,
   lostFirst : true,
@@ -25,6 +29,8 @@ var GAME = {
 var Bill = {
   initialized : false,
   beans:0,
+  jellyBeans : 0,
+  paused : 0,
   latest : {
     x : 0,
     y : 0
@@ -39,6 +45,14 @@ var Bob = {
 };
 
 var Beans ={
+  initialized : false,
+  latest : {
+    x : 0,
+    y : 0
+  }
+};
+
+var JellyBeans={
   initialized : false,
   latest : {
     x : 0,
