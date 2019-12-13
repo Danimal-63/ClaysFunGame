@@ -3,7 +3,6 @@ var GAME = {
     width : 600,
     height : 300
   },
-<<<<<<< HEAD
   started : false,
   level : 1,
   bean : [],
@@ -20,10 +19,8 @@ var GAME = {
   gameSpeed : 2,
   paused : false,
   bestScore : 9999999,
-=======
   started : true,
   level : 1
->>>>>>> parent of 0010170... UPDATE
 };
 
 var Bill = {

@@ -255,7 +255,42 @@ context.fillStyle="white";
 
 }
 
+
+function handleBobAnimation() {
+//Bob.x+=Bob.speed;
+/*  Bob.x+=Bob.speed
+  Bob.y=Bill.y
+  // Check if asteroid is leaving the boundary, if so, switch sides
+*/
+if (CONTROLS.bill.fart) {
+
+  Bob.x -= 5;
 }
+if (CONTROLS.bill.vomit)
+{
+  Bob.x -=5;
+  Bob.y -=10
+}
+Bob.x += Bob.speed;
+if(Bob.y < Bill.y)
+{
+  Bob.y+= (Bob.speed + Bob.verticalSpeed);
+}
+if(Bob.y > Bill.y)
+{
+  Bob.y-= (Bob.speed + Bob.verticalSpeed);
+}
+if (Bob.x > GAME.canvas.width) {
+  Bob.x = 0;
+} else if (Bill.x < 0) {
+  Bob.x = 600;
+} else if (Bill.y > GAME.canvas.height) {
+  Bob.y = 0;
+} else if (Bill.y < 0) {
+  Bob.y = 300;
+}
+}
+
 
 // var width = cvs.getAttribute('width');
 // var height = cvs.getAttribute('height');
@@ -351,8 +386,6 @@ function runGame() {
     RenderWomen(context);
     RenderMen(context);
 
-
->>>>>>> parent of 0010170... UPDATE
 
   } else {
     // 1 - Reposition the objects
