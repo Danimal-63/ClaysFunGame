@@ -32,6 +32,20 @@
  var winFartSound = new Audio('Sounds/Farts/winFart.m4a');
 
 
+function changeAnimationFrame (){
+  if (seconds >= desiredSeconds)
+  {
+      if (billPic.src=='Images/flatulentMan/fartman_0.png';){
+        billPic.src=='Images/flatulentMan/fartman_1.png';
+      }
+      else if (billPic.src=='Images/flatulentMan/fartman_1.png')
+      {
+        billpc.src=='Images/flatulentMan/fartman_2.png';
+      }
+  }
+};
+
+var desiredSeconds = 1;
 
  function handleBeansAnimation (){
 if(GAME.paused==false){
@@ -221,6 +235,8 @@ function runGame() {
     RenderBabies(context);
     RenderWinLose(context);
     RenderBumParticles(context);
+    seconds = Math.round(new Date().getTime()/1000);
+    changeAnimationFrame();
 
 
 
