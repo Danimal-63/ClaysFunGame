@@ -178,13 +178,33 @@ context.fillStyle="white";
     GAME.level+=1;
     Bill.x=300;
     Bob.x=0;
-    Bob.speed=0.25+(0.025*GAME.level);
+    //Bob.speed=0.25+(0.025*GAME.level);(Variable speed, maybe for a no limit game?0
     GAME.beanCount=0;
     if (GAME.level==2){
       addWoman(549,100);
     }
     if (GAME.level==3){
       addMan(549,100)
+    }
+    if (GAME.level==4){
+      addWoman(549,100);
+      addWoman(549,0);
+    }
+    if (GAME.level==5){
+      addMan(549,100);
+      addMan(549,0);
+    }
+    if (GAME.level==6){
+      addWoman(549,100);
+      addMan(549,0);
+    }
+    if (GAME.level==7){
+      addMan(549,100);
+      addMan(549,0);
+      addWomen(249,200);
+    }
+    if (GAME.level=8){
+      //game win
     }
 
     context.fillRect(0,0,GAME.canvas.width,GAME.canvas.height);

@@ -10,7 +10,12 @@ function Woman (x,y){
   this.x=x;
   this.y=y;
   this.babyTimer=(Math.random()*45)+1;
+  this.random=(Math.random()*2)
+  if (this.random>1){
   this.change=3;
+}else{
+  this.change=-3
+}
 }
 
 function RenderWomen(context){
