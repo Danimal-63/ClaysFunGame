@@ -217,7 +217,7 @@ context.fillStyle="white";
     // Draw a new item h
     removeWomen();
     removeBeans();
-    removeBabies();
+    //removeBabies();
     removeMen();
     GAME.level+=1;
     Bill.x=300;

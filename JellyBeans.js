@@ -30,7 +30,7 @@ function RenderJellyBeans(context){
      if (GAME.jellyBeanCount <10)
      context.fillText(GAME.jellyBeanCount, GAME.canvas.width -50, GAME.canvas.height-10);
      else
-     context.fillText(GAME.jellyBeanCount, GAME.canvas.width -64, GAME.canvas.height-10);
+     context.fillText(GAME.jellyBeanCount, GAME.canvas.width -70, GAME.canvas.height-10);
   }
 }
 

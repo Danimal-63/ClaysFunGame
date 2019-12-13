@@ -24,8 +24,11 @@ if (GAME.paused==false){
     }
 
   else{
-
-
+    if(babyAddTimer==0){
+    addBaby(GAME.canvas.width, Math.random()*(GAME.canvas.height -20));
+    babyAddTimer=45;
+  }
+  babyAddTimer--;
 
   for (var i = 0; i<GAME.baby.length; i++){
     GAME.baby[i].x-=GAME.gameSpeed;
