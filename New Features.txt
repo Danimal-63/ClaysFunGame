@@ -1,0 +1,31 @@
+New Features:
+
+*Images (Jack Hoppus)
+	Create new sprites for Bill, Owner, Flatulent men, Pregnant Women
+	Create and implement animations for these sprites
+	Create option menu for main screen which can toggle between default images
+	and reworked less gross ones
+
+*2 Player Mode (Jaden Blaser)
+	Create main menu screen / option to choose between different modes
+	Implement controls for player2 (W and S for movement and shift for boost)
+	Collision for Player 2 (They have to meet Player 1 not just pass them)
+	Make player work the opposite of Player 1 (Trips on beans and gets boosts from babies)
+
+*More Levels (Daniel Guerrero)
+	Flatulent Men who randomly fart and randomly move up and down
+		Farts should function exactly as Player 1 does on the owner
+	Pregnant Women who randomly birth babies and randomly move up and down
+		Babies should spawn on the 26th column
+	The two people should live on the 27th columns and only move up and down rows
+	Create different levels with varying numbers of pregnant women and Flatulent men
+
+**Movie at the start of the game to explain story (maybe in between cutscenes as well) (Jenna Kronenberg)
+
+
+*More Items (John Cahill)
+	ex Burritos can be dropped behind you like bananas in mario kart
+	   Tacos can be used to clear your path of all other items
+	   Salsa can be used to "blind" (makes the owner move randomly instead of following behind)
+		 Jelly beans that make you vomit, pushing you and the owner to the left
+	   Item Boxes to hold them

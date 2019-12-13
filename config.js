@@ -9,6 +9,8 @@ var GAME = {
   jellyBean : [],
   baby : [],
   road : [],
+  women: [],
+  men:[],
   beanCount : 0,
   jellyBeanCount : 0,
   over : false,
@@ -24,6 +26,7 @@ var Bill = {
   bumParticles : [],
   beans:0,
   jellyBeans : 0,
+  paused : 0,
   latest : {
     x : 0,
     y : 0

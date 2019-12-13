@@ -87,7 +87,11 @@ if(GAME.paused==false){
 function handleBillAnimation() {
   //let playerShotImg = new Image();
   //playerShotImg.src = 'Sounds/fartBeans.png';
-  Bill.elapsed = new Date()-Bill.start;
+  if (GAME.paused){
+    Bill.paused=new Date()-Bill.elapsed-Bill.start;
+  }else{
+  Bill.elapsed = new Date()-Bill.start-Bill.paused;
+}
   if (CONTROLS.bill.up) {
     Bill.y -= Bill.verticalSpeed;
   }
@@ -195,15 +199,30 @@ context.fillStyle="white";
   if(GAME.lostFirst == true) lossSound.play();
   GAME.lostFirst = false;
   }
+  if (GAME.level==8){
+    context.font = "80px Arial";
+      GAME.wonFirst = false;
+      context.fillRect(0,0,GAME.canvas.width,GAME.canvas.height);
+      context.fillStyle="white";
+      context.fillText("YOU WIN!", 110, 180);
+    context.font = "30px Arial";
+    context.fillText("Low Score: " + GAME.bestScore/1000, 180, 280);
+    if(GAME.wonFirst == true) winFartSound.play();
+  }
   if (Bill.x > GAME.canvas.width -50)
   {
     if(Bill.elapsed<GAME.bestScore){
       GAME.bestScore=Bill.elapsed;
     }
     // Draw a new item h
-    GAME.over=true;
-    context.fillStyle="black";
-    Bob.speed=0;
+    removeWomen();
+    removeBeans();
+    removeBabies();
+    removeMen();
+    GAME.level+=1;
+    Bill.x=300;
+    Bob.x=0;
+    //Bob.speed=0.25+(0.025*GAME.level);(Variable speed, maybe for a no limit game?0
     GAME.beanCount=0;
     GAME.jellyBeanCount=0;
 
@@ -215,6 +234,29 @@ context.fillStyle="white";
   context.fillText("Low Score: " + GAME.bestScore/1000, 180, 280);
   if(GAME.wonFirst == true) winFartSound.play();
   GAME.wonFirst = false;
+    if (GAME.level==2){
+      addWoman(549,100);
+    }
+    if (GAME.level==3){
+      addMan(549,100)
+    }
+    if (GAME.level==4){
+      addWoman(549,50);
+      addWoman(549,250);
+    }
+    if (GAME.level==5){
+      addMan(549,50);
+      addMan(549,250);
+    }
+    if (GAME.level==6){
+      addWoman(549,100);
+      addMan(549,0);
+    }
+    if (GAME.level==7){
+      addMan(549,100);
+      addMan(549,0);
+      addWoman(549,200);
+    }
   /*setTimeout(function(){fartSound1.play()}, 2000);
   setTimeout(function(){fartSound2.play()}, 4000);
   setTimeout(function(){fartSound3.play()}, 6000);
@@ -246,7 +288,8 @@ function runGame() {
     handleBabysAnimation();
     handleJellyBeansAnimation();
     animateBumParticles();
-
+    handleWomenAnimation();
+    handleMenAnimation();
 
     context.clearRect(0,0,GAME.canvas.width,GAME.canvas.height);
 
@@ -258,6 +301,8 @@ function runGame() {
     RenderJellyBeans(context);
     RenderWinLose(context);
     RenderBumParticles(context);
+    RenderWomen(context);
+    RenderMen(context);
 
 
 
