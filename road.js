@@ -29,7 +29,7 @@ if(GAME.paused==false){
 
 
 function RenderRoad(context){
-  if (Bill.x < GAME.canvas.width -50 && Bill.x > Bob.x + 50)
+  if (Bill.x < GAME.canvas.width -50 && Bill.x > Bob.x + 50 || Bill.x < GAME.canvas.width -50 && Bill.x > Tim.x + 50)
   {
     context.fillStyle="grey";
     context.fillRect(0,0,GAME.canvas.width,GAME.canvas.height);

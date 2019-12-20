@@ -30,6 +30,14 @@ else{
    context.fillText(GAME.beanCount, GAME.canvas.width -25, GAME.canvas.height-10);
    else
    context.fillText(GAME.beanCount, GAME.canvas.width -39, GAME.canvas.height-10);
+
+   context.font = "30px Arial";
+   if (GAME.beanCountTwo < 5) context.fillStyle='red';
+   else context.fillStyle='green';
+   if (GAME.beanCountTwo !=10)
+   context.fillText(GAME.beanCountTwo, GAME.canvas.width -580, GAME.canvas.height-260);
+   else
+   context.fillText(GAME.beanCountTwo, GAME.canvas.width -594, GAME.canvas.height-260);
 }
 }
 
@@ -43,5 +51,6 @@ function InitializeBeans() {
        i--;
    }
    GAME.beanCount = 0;
+   GAME.beanCountTwo = 0;
 
 }

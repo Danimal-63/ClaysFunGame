@@ -50,6 +50,18 @@ if (GAME.paused==false){
       i--;
     }
   }
+  for (var i = 0; i<GAME.baby.length; i++){
+    if(GAME.baby[i].x < (Tim.x+51) && GAME.baby[i].x > (Tim.x-20) && GAME.baby[i].y > (Tim.y -20) && GAME.baby[i].y < (Tim.y +50))
+    {
+      GAME.baby.splice(i,1);
+      Tim.stumble=true;
+      babySound.play();
+
+      setTimeout(function(){Tim.stumble = false;}, 150);
+      i--;
+    }
+  }
+
 }
 }
 }

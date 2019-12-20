@@ -9,6 +9,7 @@ var GAME = {
   baby : [],
   road : [],
   beanCount : 0,
+  beanCountTwo : 0,
   over : false,
   wonFirst : true,
   lostFirst : true,
@@ -28,6 +29,16 @@ var Bill = {
 };
 var Bob = {
   initialized : false,
+  latest : {
+    x : 0,
+    y : 0
+  }
+};
+
+var Tim = {
+  initialized : false,
+  bumParticles : [],
+  beans:0,
   latest : {
     x : 0,
     y : 0

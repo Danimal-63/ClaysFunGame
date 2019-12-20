@@ -57,6 +57,14 @@ if(GAME.paused==false){
        i--;
      }
    }
+   for (var i = 0; i<GAME.bean.length; i++){
+      if(GAME.bean[i].x < (Tim.x+51) && GAME.bean[i].x > (Tim.x-20) && GAME.bean[i].y > (Tim.y -20) && GAME.bean[i].y < (Tim.y +50))
+      {
+        GAME.bean.splice(i,1);
+        if(GAME.beanCountTwo < 10) GAME.beanCountTwo++;
+        i--;
+      }
+    }
  }
 }
 function handleBillAnimation() {
@@ -110,6 +118,7 @@ if (CONTROLS.bill.fart) {
   Bob.x -= 5;
 }
 Bob.x += Bob.speed;
+
 if(Bob.y < Bill.y)
 {
   Bob.y+= (Bob.speed + Bob.verticalSpeed);
@@ -129,6 +138,35 @@ if (Bob.x > GAME.canvas.width) {
 }
 }
 
+function handleTimAnimation()
+{
+  //console.log("here");
+  Tim.elapsed = new Date()-Tim.start;
+  if (CONTROLSTWO.tim.up) {
+    Tim.y -= Tim.verticalSpeed;
+  }
+  if (Tim.stumble == true)
+  {
+    Tim.x -= 3;
+
+  }
+
+  if (CONTROLSTWO.tim.down) {
+    Tim.y += Tim.verticalSpeed;
+  }
+
+  if (CONTROLSTWO.tim.fart) {
+    Tim.x += 5;
+  }
+  if (CONTROLSTWO.tim.up && (Tim.y < 0)) {
+
+    Tim.y += 10;
+  }
+  if (CONTROLSTWO.tim.down && (Tim.y > GAME.canvas.height - 50)) {
+    Tim.y -= 10;
+  }
+}
+
 function RenderBill(context) {
   context.fillStyle="black";
   context.drawImage(billPic,Bill.x,Bill.y,50,50);
@@ -145,19 +183,38 @@ function RenderBob(context) {
   // Draw a new item here using the canvas 'context' variable
 }
 
+function RenderTim(context) {
+  context.fillStyle="blue";
+  //context.fillRect(Bob.x,Bob.y,50,50);
+  context.drawImage(billPic,Tim.x,Tim.y,50,50);
+  // Draw a new item here using the canvas 'context' variable
+}
+
 
 function RenderWinLose(context){
-  if (Bill.x < Bob.x + 30)
+  //console.log("here2");
+  if (Bill.x < Bob.x + 30 || Bill.x < Tim.x + 30)
   {
     GAME.over=true;
     context.fillStyle="blue";
     Bob.speed=0;
     GAME.beanCount=0;
+    //console.log("here3");
 
+  /*
+  if (Bill.x < Tim.x + 30)
+    {
+      GAME.over=true;
+      context.fillStyle="blue";
+      Tim.speed=0;
+      GAME.beanCount=0;
+    }
+*/
   context.fillRect(0,0,GAME.canvas.width,GAME.canvas.height);
-context.fillStyle="white";
+  context.fillStyle="white";
   context.font = "80px Arial";
   context.fillText("YOU LOSE!", 75, 180);
+
   if(GAME.lostFirst == true) lossSound.play();
   GAME.lostFirst = false;
   }
@@ -170,6 +227,7 @@ context.fillStyle="white";
     GAME.over=true;
     context.fillStyle="black";
     Bob.speed=0;
+    // Tim.speed = 0;
     GAME.beanCount=0;
 
     context.fillRect(0,0,GAME.canvas.width,GAME.canvas.height);
@@ -193,8 +251,8 @@ context.fillStyle="white";
 
 }
 
-}
 
+}
 
 
 function runGame() {
@@ -207,6 +265,7 @@ function runGame() {
     handleRoadAnimation();
     handleBillAnimation();
     handleBobAnimation();
+    handleTimAnimation();
     handleBeansAnimation();
     handleBabysAnimation();
     animateBumParticles();
@@ -217,6 +276,7 @@ function runGame() {
     RenderRoad(context);
     RenderBill(context);
     RenderBob(context);
+    RenderTim(context);
     RenderBeans(context);
     RenderBabies(context);
     RenderWinLose(context);
